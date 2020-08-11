@@ -1,9 +1,9 @@
 # Onboarding Task: 
 Andrew offers me this great onboarding task to get started with k8s
 
-It takes me 2 days to finish all the tasks and better understand key concepts behind it
+It takes me some time to finish all the tasks and understand key concepts behind it
 
-I will share the steps I take and record some notes that might be helpful for beginners to understand
+I will share the steps I take and record some notes that might be helpful for beginners
 
 ## Prerequisite
 - A running Kubernetes cluster
