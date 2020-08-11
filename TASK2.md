@@ -49,5 +49,5 @@ $ docker push nicolehan1996/test-go
 ```
 Now the image is now available for everyone to use!
 
-![My Docker Hub](Users/nicolehan/Desktop/hello.png)
+![My Docker Hub](hello.png)
 
