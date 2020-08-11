@@ -73,7 +73,8 @@ spec:
           serviceName: go-current-time-service
           servicePort: 8081
 ```
-<br>
+
+apply this Ingress file:
 ```
 $ kubectl apply -f ingress-test.yaml
 ```
