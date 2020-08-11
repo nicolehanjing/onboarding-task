@@ -29,7 +29,8 @@ spec:
     type: NodePort                 # A port is opened on each node in your cluster via Kube proxy.
     ports:                         # Take incoming HTTP requests on port 9090 and forward them to the targetPort of 8080
     - name: http
-      port: 9090
+      port: 8080
       targetPort: 8080
+      nodePort: 30007
     selector:
         app: go-current-time         # Map any pod with label `app=go-current-time` to this service
