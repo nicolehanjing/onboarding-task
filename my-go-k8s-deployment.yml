@@ -17,7 +17,7 @@ spec:
         image: nicolehan1996/test-go:firsttry
         imagePullPolicy: IfNotPresent
         ports:
-          - containerPort: 8080  # Should match the port number that the Go application listens on
+          - containerPort: 8081  # Should match the port number that the Go application listens on
           
 ---
 
@@ -29,8 +29,8 @@ spec:
     type: NodePort                 # A port is opened on each node in your cluster via Kube proxy.
     ports:                         # Take incoming HTTP requests on port 9090 and forward them to the targetPort of 8080
     - name: http
-      port: 8080
-      targetPort: 8080
+      port: 8081
+      targetPort: 8081
       nodePort: 30007
     selector:
         app: go-current-time         # Map any pod with label `app=go-current-time` to this service
