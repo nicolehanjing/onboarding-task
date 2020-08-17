@@ -4,10 +4,24 @@ metadata:
   name: test-ingress
 spec:
   rules:
-  - host: go.current.time
+  - host: est.current-time.io
     http:
       paths:
       - path: /
         backend:
-          serviceName: go-current-time-service
-          servicePort: 8081
+          serviceName: est-current-time-service
+          servicePort: 8083
+  - host: pst.current-time.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pst-current-time-service
+          servicePort: 8083
+  - host: utc.current-time.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: utc-current-time-service
+          servicePort: 8083

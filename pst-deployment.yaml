@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment                 
+metadata:
+  name: pst-current-time-deployment         
+spec:
+  replicas: 3                    # Number of pods to run at any given time
+  selector:
+    matchLabels:
+      app: pst-current-time        # This deployment applies to any Pods matching the specified label
+  template:                      # This deployment will create a set of pods using the configurations in this template
+    metadata:
+      labels:                    # The labels that will be applied to all of the pods in this deployment
+        app: pst-current-time 
+    spec:                        # Spec for the container which will run in the Pod
+      containers:
+      - name: pst-current-time
+        image: nicolehan1996/test-go:secondtry
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8083  # Should match the port number that the Go application listens on
+        env:
+        - name: TIMEZONE
+          value: America/Los_Angeles
+
+---
+apiVersion: v1
+kind: Service                   
+metadata:
+    name: pst-current-time-service   
+spec:
+    type: LoadBalancer                 # A port is opened on each node in your cluster via Kube proxy.
+    ports:                         # Take incoming HTTP requests on port 9090 and forward them to the targetPort of 8080
+    - name: http
+      protocol: TCP
+      port: 8083
+      targetPort: 8083
+      nodePort: 30008
+    selector:
+        app: pst-current-time         # Map any pod with label `app=go-current-time` to this service
