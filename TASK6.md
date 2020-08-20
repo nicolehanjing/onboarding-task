@@ -32,9 +32,12 @@ All programming languages have a way to retrieve environment variables from the 
 
 edit main.go to refelect the change
 
-All the variables pass to docker, will be found in os.Getenv(“{Key}”)
+All the environment variables can be found in e.g. 
+```
+os.Getenv(“{Key}”)
+```
 
-we build image and tag it with name "my-go-app"
+We build the new image for our go app and tag it with name "my-go-app"
 
 ```
 $ docker build -t my-go-app .
@@ -42,12 +45,13 @@ $ docker images
 REPOSITORY                                     TAG                                 IMAGE ID            CREATED              SIZE
 my-go-app                                      latest                              021eb0817105        About a minute ago   367MB
 
-$ docker tag 021eb0817105 nicolehan1996/test-go:secondtry
+$ docker tag 021eb0817105 <YOUR DOCKER HUB ID>/test-go:secondtry
 $ docker push <YOUR DOCKER HUB ID>/test-go
 ```
 
 
-now we have a new image, remember to edit the image name of the container in deployment YAML file and apply the change
+<br>
+Now we have a new image, remember to edit the image name of the container in deployment YAML file and apply the change
 
 ```
 $ kubectl get deployments
@@ -57,7 +61,7 @@ pst-current-time                      3/3     3            3           7s
 utc-current-time                      0/3     3            0           7s
 ```
 
-There are 3 YAML files called pst-deployment.yaml, etc
+There are 3 YAML files called "pst-deployment.yaml", etc
 ```
 $ kubectl apply -f pst-deployment.yaml
 deployment.apps/pst-current-time-deployment created
@@ -91,7 +95,7 @@ utc-current-time-deployment-854f4468bf-m79vh           1/1     Running   0      
 ```
 
 <br>
-Now edit ingress-test.yaml and apply it
+Edit ingress-test.yaml and apply it
 ```
 $ kubectl apply -f ingress-test.yaml
 ingress.networking.k8s.io/test-ingress configured
