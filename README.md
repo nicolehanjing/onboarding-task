@@ -67,6 +67,7 @@ $ curl my-service.com/
 2009-11-10 23:00:00 +0000 UTC m=+0.000000001
 ```
 
+<br/><br/>
 ### Task #6 Timezone based HTTP Server
 Update the HTTP server to return the current timestamp in a particular timezone. 
 
