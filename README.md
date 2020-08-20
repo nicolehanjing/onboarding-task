@@ -67,6 +67,21 @@ $ curl my-service.com/
 2009-11-10 23:00:00 +0000 UTC m=+0.000000001
 ```
 
+### Task #6 Timezone based HTTP Server
+Update the HTTP server to return the current timestamp in a particular timezone. 
 
+The timezone can be set based on an environment variable passed into the container. The HTTP server should be updated to read the value in the environment variable and convert the timestamp accordingly. 
+
+Run 3 different deployments of the HTTP server, with each deployment returning the current timestamp in EST, PST, and UTC.
+
+The ingress controller should request to the 3 deployments based on the timezone specified in the hostname. For example:
+```
+$ curl est.current-time.io/
+<current time in eastern time>   
+$ curl pst.current-time.io/
+<current time in pacific time>
+$ curl utc.current-time.io/
+<current time in UTC>
+```
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
