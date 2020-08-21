@@ -1,4 +1,5 @@
 # Onboarding Task: 
+Original doc: https://docs.google.com/document/d/1BgIlZkRm8zyU7BZH2FMuSwPKyCdJDogV23UzQlRSkHk/edit#heading=h.b5vycqjp5dlv
 Andrew offers me this great onboarding task to get started with k8s
 
 It takes me some time to finish all the tasks and understand key concepts behind it
