@@ -77,8 +77,9 @@ $ curl localhost:8080/
 $ curl localhost:8080/kitchen
 10:25PM
 ```
-```
+
 to view more logs:
+```
 $ kubectl logs -f go-current-time-bcf9968d9-bwvtn
 ```
 
