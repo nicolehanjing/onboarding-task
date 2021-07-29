@@ -102,5 +102,5 @@ $ curl go.current.time
 ```
 It's working! 
 
-Wecan also visit http://go.current.time/kitchen
+We can also visit http://go.current.time/kitchen
 - see "10:53PM"

@@ -9,7 +9,9 @@ The port-forward command is good for testing the pods directly. But in productio
 
 Instead of relying on the Pods IP addresses which change, Kubernetes provides services as stable endpoint for pods.
 
-The pods that the service exposes are based on a set of labels. If Pods have the correct labels, they are automatically picked up and exposed by our services.
+The pods that the service exposes are based on a set of labels. 
+
+If Pods have the correct labels, they are automatically picked up and exposed by our services.
 
 <br>
 First, add the following snippets into my-go-k8s-deployment.yml file
@@ -30,11 +32,13 @@ spec:
         app: go-current-time         # Map any pod with label `app=go-current-time` to this service
 ```
 
-create the service
+create the service:
+
 ```
 $ kubectl apply -f my-go-k8s-deployment.yml
 deployment.apps/go-current-time unchanged
 service/go-current-time-service created
+
 $ kubectl get services
 NAME                                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)             AGE
 go-current-time-service               NodePort    100.69.120.197   <none>        9090:31888/TCP      75s
@@ -59,6 +63,7 @@ curl the URL for the service
 
 1. <NodeIP>:spec.ports[*].nodePort 
 2. .spec.clusterIP:spec.ports[*].port
+
 ```
 $ kubectl get nodes -o wide
 NAME                         STATUS   ROLES    AGE    VERSION            INTERNAL-IP      EXTERNAL-IP      OS-IMAGE                 KERNEL-VERSION   CONTAINER-RUNTIME
@@ -80,11 +85,13 @@ Now we can see the EXTERNAL-IP of workload node "test-md-0-5d4c9f854c-6j2ks"
 we have 2 options:
 - option1: <nodeIP>:<nodePort>
 - option2: <ClusterIP>:<port>
+
 Try option 1:
 ```
 $ curl http://10.160.207.190:30007
 curl: (7) Failed to connect to 10.160.207.190 port 30007: Connection refused
 ```
+
 There is a connection error, then run:
 ```
 $ kubectl get endpoints
@@ -100,6 +107,7 @@ now change the port in the YAML file "- containerPort: 8081"
 "targetPort: 8081" and "port: CAN BE ANY"
 
 ```
+# <nodeIP>:<nodePort>
 $ curl 10.160.207.190:30007
 2020-08-11 21:37:01.312486378 +0000 UTC m=+21.799144038
 ```

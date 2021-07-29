@@ -52,12 +52,15 @@ $ go run main.go
 
 In the second terminal:
 ```
-$ curl -v localhost/
-2020-08-10 11:43:19.155007 -0700 PDT m=+3.639003257
-$ curl localhost/kitchen
-11:43AM
-$ curl localhost/unix
-Mon Aug 10 11:43:57 PDT 2020
+$ curl localhost:8083/
+2021-07-28 23:17:13.06243 +0000 UTC
+TIMEZONE:
+$ curl localhost:8083/kitchen
+11:16PM
+TIMEZONE:
+$ curl localhost:8083/unix
+Wed Jul 28 23:17:47 UTC 2021
+TIMEZONE:
 ```
 
 ### Yay!! all working correcly!
